@@ -30,18 +30,21 @@ const services = [
     title: "Physical disability support",
     text: "Assessed support with personal care, mobility, daily routines and participation.",
     src: "/physical-disability-support.jpg",
+    feature: true,
   },
   {
     icon: Sparkles,
     title: "Mental health & wellbeing",
     text: "Practical, personal and emotional support at home within our homecare scope.",
     src: "/mental-health-wellbeing.jpg",
+    feature: true,
   },
   {
     icon: Baby,
     title: "Children & young people",
     text: "Person-centred support planned with the young person, their family and involved professionals.",
     src: "/children-young-people.jpg",
+    feature: true,
   },
 ];
 
