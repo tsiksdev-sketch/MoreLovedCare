@@ -17,7 +17,7 @@ export function Hero() {
   const heartPath = "M50 87.5 C25 70 12.5 55 12.5 38 C12.5 25 22 17.5 33 17.5 C40 17.5 45.5 21.2 50 27 C54.5 21.2 60 17.5 67 17.5 C78 17.5 87.5 25 87.5 38 C87.5 55 75 70 50 87.5 Z";
 
   return (
-    <section ref={ref} className="relative pt-28 pb-24 lg:pt-36 lg:pb-32 overflow-hidden">
+    <section ref={ref} className="relative  pt-35 pb-24 lg:pt-36 lg:pb-32 overflow-hidden">
       {/* Ambient background */}
       <div className="absolute inset-0 -z-10 bg-cream" />
       <div className="absolute -top-40 -right-40 w-150 h-150 rounded-full bg-blush blur-3xl opacity-60 -z-10" />
