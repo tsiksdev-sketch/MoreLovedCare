@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-blush: var(--blush);
+  --color-cream: var(--cream);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-serif: "Cormorant Garamond", "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 10px 40px -20px color-mix(in oklab, var(--primary) 35%, transparent);
+  --shadow-lift: 0 20px 60px -30px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Warm cream, burgundy, gold — inspired by the reference brand */
+  --background: oklch(0.985 0.012 80);          /* warm cream */
+  --cream: oklch(0.97 0.02 75);
+  --foreground: oklch(0.22 0.03 20);            /* deep near-black warm */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 20);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 20);
+
+  --primary: oklch(0.36 0.11 15);               /* deep burgundy */
+  --primary-foreground: oklch(0.985 0.012 80);
+
+  --secondary: oklch(0.94 0.03 30);             /* soft blush */
+  --secondary-foreground: oklch(0.36 0.11 15);
+
+  --blush: oklch(0.93 0.035 25);
+  --muted: oklch(0.95 0.015 70);
+  --muted-foreground: oklch(0.45 0.03 25);
+
+  --accent: oklch(0.9 0.05 40);
+  --accent-foreground: oklch(0.36 0.11 15);
+
+  --gold: oklch(0.72 0.13 80);                  /* warm gold from logo */
+  --gold-foreground: oklch(0.22 0.03 20);
+
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.985 0.012 80);
+
+  --border: oklch(0.88 0.02 60);
+  --input: oklch(0.9 0.02 60);
+  --ring: oklch(0.36 0.11 15);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1240px;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: var(--shadow-soft);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+    background: color-mix(in oklab, var(--color-primary) 88%, black);
+  }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  &:hover {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: gap 0.25s ease;
+  &:hover {
+    gap: 0.7rem;
+  }
+}
+
+@utility card-soft {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+  }
+}
