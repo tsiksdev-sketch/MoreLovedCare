@@ -4,14 +4,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
 
-
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  // Heart path (viewBox 0 0 100 100). Adjust if you want a different heart style.
+  const heartPath = "M50 87.5 C25 70 12.5 55 12.5 38 C12.5 25 22 17.5 33 17.5 C40 17.5 45.5 21.2 50 27 C54.5 21.2 60 17.5 67 17.5 C78 17.5 87.5 25 87.5 38 C87.5 55 75 70 50 87.5 Z";
 
   return (
     <section ref={ref} className="relative pt-28 pb-24 lg:pt-36 lg:pb-32 overflow-hidden">
@@ -28,7 +31,6 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="eyebrow flex items-center gap-2"
           >
-           
             Home care in Nottingham & Nottinghamshire
           </motion.p>
 
@@ -49,9 +51,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            MoreLoved Care provides assessed care and support in people's own homes 
-            personal care, daily routines, medication, mobility, wellbeing and meaningful
-            participation, tailored to your needs, choices and agreed care plan.
+            MoreLoved Care provides assessed care and support in people's own homes personal care,
+            daily routines, medication, mobility, wellbeing and meaningful participation, tailored to
+            your needs, choices and agreed care plan.
           </motion.p>
 
           <motion.div
@@ -91,7 +93,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Parallax image */}
+        {/* Heart-clipped parallax image */}
         <div className="lg:col-span-6 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -99,15 +101,63 @@ export function Hero() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="relative aspect-4/5 lg:aspect-5/6 overflow-hidden rounded-4xl shadow-2xl"
           >
-            <motion.img
-              src='hero-home.jpg'
-              alt="A MoreLoved Care worker and an older woman talking together at a kitchen table."
+            {/* SVG does the clipping + border */}
+            <svg
+              viewBox="0 0 100 115"
+              className="absolute inset-0 w-full h-full"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <clipPath id="heartClip">
+                  <path d={heartPath} />
+                </clipPath>
+              </defs>
+
+              {/* Border */}
+              <path
+                d={heartPath}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="4.5"
+                vectorEffect="non-scaling-stroke"
+                className="text-gold"
+              />
+
+              {/* Image clipped to heart */}
+              <image
+                href="hero-home.jpg"
+                x="0"
+                y="0"
+                width="100"
+                height="115"
+                preserveAspectRatio="xMidYMid slice"
+                clipPath="url(#heartClip)"
+              />
+
+              {/* Overlay gradient (keeps your original look) */}
+              <rect
+                x="0"
+                y="0"
+                width="100"
+                height="115"
+                fill="url(#overlayGrad)"
+                opacity="1"
+                clipPath="url(#heartClip)"
+              />
+              <defs>
+                <linearGradient id="overlayGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(0,0,0,0.12)" />
+                  <stop offset="45%" stopColor="rgba(0,0,0,0.00)" />
+                  <stop offset="100%" stopColor="rgba(0,0,0,0.00)" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Parallax effect is applied as a motion wrapper using CSS transform on the SVG */}
+            <motion.div
               style={{ y, scale }}
-              className="absolute inset-0 w-full h-full object-cover"
-              width={1600}
-              height={1200}
+              className="absolute inset-0"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-primary/30 via-transparent to-transparent" />
           </motion.div>
 
           {/* Floating stat card */}
