@@ -37,7 +37,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4 md:gap-6 opacity-90">
             <a href="#existing" className="hover:opacity-100 hidden sm:inline">Existing clients</a>
             <a href="#careers" className="hover:opacity-100 hidden sm:inline">Careers</a>
-            <a href="#contact" className="hover:opacity-100 hidden sm:inline">Contact</a>
+            <a href="#assessment" className="hover:opacity-100 hidden sm:inline">Contact</a>
             <a href="tel:01156812514" className="inline-flex items-center gap-1.5 font-medium">
               <Phone className="w-3.5 h-3.5" /> 0115 681 2514
             </a>
@@ -70,7 +70,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <a href="#referral" className="btn-outline text-sm py-2! px-4!">Refer</a>
+            <a href="#assessment" className="btn-outline text-sm py-2! px-4!">Refer</a>
             <a href="#assessment" className="btn-primary text-sm py-2! px-4!">Request assessment</a>
           </div>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex gap-2 pt-2">
-                <a href="#referral" className="btn-outline flex-1 text-sm">Refer</a>
+                <a href="#assessment" className="btn-outline flex-1 text-sm">Refer</a>
                 <a href="#assessment" className="btn-primary flex-1 text-sm">Assessment</a>
               </div>
             </div>
