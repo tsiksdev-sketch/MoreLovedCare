@@ -3,9 +3,12 @@
 import { useState } from "react"
 import { Loader2, Mail, MapPinned, Phone, Send, User } from "lucide-react"
 import { services, contact } from "@/lib/site"
-import { ContactErrors, ContactFormState, contactSchema } from "@/lib/contact-schema"
+import {
+  contactSchema,
+  type ContactErrors,
+  type ContactFormState,
+} from "@/lib/contact-schema"
 import { Field, inputCls, ServerError, SuccessPanel } from "./form-ui"
-
 
 const initial: ContactFormState = {
   name: "",

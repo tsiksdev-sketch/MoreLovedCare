@@ -1,6 +1,14 @@
+'use server'
+
 import { NextResponse } from "next/server"
-import { Resend } from "resend"
 import { referralSchema } from "@/lib/contact-schema"
+import {
+  buildEmailHtml,
+  getFromAddress,
+  getResend,
+  getToAddress,
+  refId,
+} from "@/lib/email"
 
 export async function POST(request: Request) {
   let body: unknown
@@ -40,43 +48,74 @@ export async function POST(request: Request) {
     details,
   } = parsed.data
 
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    console.log("[v0] RESEND_API_KEY is not set")
+  const client = getResend()
+  if ("error" in client) {
+    return NextResponse.json({ error: client.error }, { status: 500 })
+  }
+
+  const from = getFromAddress("Referrals")
+  if (!from) {
     return NextResponse.json(
       { error: "Email service is not configured yet." },
       { status: 500 },
     )
   }
+  const to = getToAddress()
 
-  const resend = new Resend(apiKey)
-  const from = process.env.CONTACT_FROM_EMAIL ?? "Referrals <contact@africarbontraining.com>"
-  const to = process.env.CONTACT_TO_EMAIL ?? "hello@morelovedcare.co.uk"
+  const text = [
+    "PROFESSIONAL REFERRAL",
+    "",
+    "Referrer",
+    `  Name: ${referrerName}`,
+    `  Organisation: ${referrerOrg}`,
+    `  Email: ${referrerEmail}`,
+    `  Phone: ${referrerPhone}`,
+    "",
+    "Person being referred",
+    `  Name: ${clientName}`,
+    `  Location: ${clientLocation}`,
+    `  Service: ${service}`,
+    `  Urgency: ${urgency}`,
+    "",
+    "Details:",
+    details,
+  ].join("\n")
+
+  const html = buildEmailHtml({
+    title: "New professional referral",
+    intro: `${referrerName} from ${referrerOrg} referred ${clientName}.`,
+    sections: [
+      {
+        heading: "Referrer",
+        rows: [
+          { label: "Name", value: referrerName },
+          { label: "Organisation", value: referrerOrg },
+          { label: "Email", value: referrerEmail },
+          { label: "Phone", value: referrerPhone },
+        ],
+      },
+      {
+        heading: "Person being referred",
+        rows: [
+          { label: "Name", value: clientName },
+          { label: "Location", value: clientLocation },
+          { label: "Service", value: service },
+          { label: "Urgency", value: urgency },
+        ],
+      },
+    ],
+    message: { heading: "Details", body: details },
+  })
 
   try {
-    const { error } = await resend.emails.send({
+    const { error } = await client.resend.emails.send({
       from,
       to,
       replyTo: referrerEmail,
-      subject: `New referral from MoreLovedCare Website (${urgency.split(" —")[0]}): ${clientName} — ${service}`,
-      text: [
-        "PROFESSIONAL REFERRAL",
-        "",
-        "Referrer",
-        `  Name: ${referrerName}`,
-        `  Organisation: ${referrerOrg}`,
-        `  Email: ${referrerEmail}`,
-        `  Phone: ${referrerPhone}`,
-        "",
-        "Person being referred",
-        `  Name: ${clientName}`,
-        `  Location: ${clientLocation}`,
-        `  Service: ${service}`,
-        `  Urgency: ${urgency}`,
-        "",
-        "Details:",
-        details,
-      ].join("\n"),
+      subject: `New referral (${urgency.split(" —")[0]}): ${clientName} — ${service}`,
+      text,
+      html,
+      headers: { "X-Entity-Ref-ID": refId("referral") },
     })
 
     if (error) {

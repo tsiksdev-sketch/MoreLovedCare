@@ -1,8 +1,14 @@
 'use server'
 
 import { NextResponse } from "next/server"
-import { Resend } from "resend"
 import { contactSchema } from "@/lib/contact-schema"
+import {
+  buildEmailHtml,
+  getFromAddress,
+  getResend,
+  getToAddress,
+  refId,
+} from "@/lib/email"
 
 export async function POST(request: Request) {
   let body: unknown
@@ -35,36 +41,58 @@ export async function POST(request: Request) {
 
   const { name, email, phone, location, service, message } = parsed.data
 
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    console.log("[v0] RESEND_API_KEY is not set")
+  const client = getResend()
+  if ("error" in client) {
+    return NextResponse.json({ error: client.error }, { status: 500 })
+  }
+
+  const from = getFromAddress("Enquiries")
+  if (!from) {
     return NextResponse.json(
       { error: "Email service is not configured yet." },
       { status: 500 },
     )
   }
+  const to = getToAddress()
 
-  const resend = new Resend(apiKey)
-  // Use the shared onboarding sender unless a verified domain is provided.
-  const from = process.env.CONTACT_FROM_EMAIL ?? "Enquiries <contact@africarbontraining.com>"
-  const to = process.env.CONTACT_TO_EMAIL ?? "hello@morelovedcare.co.uk"
+  const text = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Location: ${location}`,
+    `Service: ${service}`,
+    "",
+    "Message:",
+    message,
+  ].join("\n")
+
+  const html = buildEmailHtml({
+    title: "New enquiry From MoreLovedCare Website",
+    intro: `${name} got in touch about "${service}".`,
+    sections: [
+      {
+        heading: "Contact",
+        rows: [
+          { label: "Name", value: name },
+          { label: "Email", value: email },
+          { label: "Phone", value: phone },
+          { label: "Location", value: location },
+          { label: "Service", value: service },
+        ],
+      },
+    ],
+    message: { heading: "Message", body: message },
+  })
 
   try {
-    const { error } = await resend.emails.send({
+    const { error } = await client.resend.emails.send({
       from,
       to,
       replyTo: email,
-      subject: `New enquiry fromMoreLovedCare Website: ${service} — ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Location: ${location}`,
-        `Service: ${service}`,
-        "",
-        "Message:",
-        message,
-      ].join("\n"),
+      subject: `New enquiry: ${service} — ${name}`,
+      text,
+      html,
+      headers: { "X-Entity-Ref-ID": refId("enquiry") },
     })
 
     if (error) {
