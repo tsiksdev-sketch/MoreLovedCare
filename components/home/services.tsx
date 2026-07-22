@@ -1,10 +1,7 @@
-'use client'
 
 import { Heart, Brain, Users2, Accessibility, Sparkles, Baby, ArrowUpRight } from "lucide-react";
 import Reveal from "./reveal";
 import Image from "next/image";
-import { AllServicesModal } from "./allservices";
-import { useState } from "react";
 
 const services = [
   {
@@ -52,7 +49,6 @@ const services = [
 ];
 
 export function Services() {
-  const [allOpen, setAllOpen] = useState(false);
   return (
     <section id="services" className="py-24 lg:py-32 bg-cream/60">
       <div className="container-x">
@@ -128,17 +124,11 @@ export function Services() {
 
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
-            <div className="hidden md:block">
-                <button  type="button" onClick={() => setAllOpen(true)} className="btn-primary">
-              View all services
-            </button>
-            </div>
-           
+            <a href="#all-services" className="btn-primary">View all services</a>
             <a href="#assessment" className="btn-outline">Ask if we can support you</a>
           </div>
         </Reveal>
       </div>
-       <AllServicesModal open={allOpen} onOpenChange={setAllOpen} />
     </section>
   );
 }

@@ -96,7 +96,7 @@ export function AllServicesModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className="
-          w-[95vw] sm:w-[92vw] md:w-[680px] lg:w-[760px]
+          w-[500px]
           max-w-none
           p-0
           overflow-hidden
