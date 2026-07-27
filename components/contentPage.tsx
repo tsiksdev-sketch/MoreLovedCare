@@ -106,9 +106,9 @@ export function ContentPage({ page }: { page: PageContent }) {
         </section>
 
         {/* Sections */}
-        <section className=" w-full py-20 ">
-          <div className="container-x w-full flex flex-row gap-12">
-            <div className="flex-3 md:sticky md:top-32 md:self-start hidden md:block">
+        <section className="py-20 md:py-28">
+          <div className="container-x grid lg:grid-cols-12 gap-12">
+            <aside className="md:col-span-3 md:sticky md:top-32 md:self-start hidden md:block">
               <p className="eyebrow">On this page</p>
               <ul className="mt-4 space-y-2 text-sm">
                 {page.sections.map((s, i) => (
@@ -133,9 +133,9 @@ export function ContentPage({ page }: { page: PageContent }) {
                   </li>
                 )}
               </ul>
-            </div>
+            </aside>
 
-            <div className="flex-9">
+            <div className="md:col-span-9 space-y-14">
               {page.sections.map((s, i) => (
                 <Reveal key={i}>
                   <article id={`s-${i}`} className="scroll-mt-32">
