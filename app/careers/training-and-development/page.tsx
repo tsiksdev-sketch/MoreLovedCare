@@ -2,7 +2,7 @@ import { ContentPage } from "@/components/contentPage";
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
 
-const page = pageContents["for-families"];
+const page = pageContents["careers__training-and-development"];
 
 export const metadata: Metadata = {
   title: page.seoTitle,

@@ -17,6 +17,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default function Page() {
   return <ContentPage page={page} />;
 }
