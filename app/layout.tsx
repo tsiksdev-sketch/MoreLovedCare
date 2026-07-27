@@ -50,7 +50,7 @@ export default function RootLayout({
      {children}
      <Toaster />
     
-     <ScrollToTop/>
+     
      <CustomCursor/>
      <CookieConsent/>
      

@@ -96,7 +96,7 @@ export function AllServicesModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className="
-          w-[500px]
+          w-125
           max-w-none
           p-0
           overflow-hidden
@@ -148,7 +148,7 @@ export function AllServicesModal({
               return (
                 <div
                   key={s.title}
-                  className="flex gap-4 p-4 sm:p-5 rounded-2xl border border-border bg-background min-h-[96px]"
+                  className="flex gap-4 p-4 sm:p-5 rounded-2xl border border-border bg-background min-h-24"
                 >
                   <div className="w-10 h-10 rounded-lg bg-blush text-primary flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5" />

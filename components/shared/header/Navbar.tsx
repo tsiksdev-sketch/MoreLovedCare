@@ -5,15 +5,19 @@ import { Phone, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const nav = [
-  { label: "Care & Support", href: "#services" },
-  { label: "How Care Begins", href: "#how" },
-  { label: "For Families", href: "#families" },
-  { label: "For Professionals", href: "#professionals" },
-  { label: "Quality & Safety", href: "#quality" },
-  { label: "About", href: "#about" },
-  { label: "Advice", href: "#advice" },
+
+type NavItem = { label: string; to?: string; href?: string };
+const nav: NavItem[] = [
+  { label: "Care & Support", to: "/care-and-support" },
+  { label: "How Care Begins", to: "/how-care-begins" },
+  { label: "For Families", to: "/for-families" },
+  { label: "For Professionals", to: "/for-professionals" },
+  { label: "Quality & Safety", to: "/quality-and-safety" },
+  { label: "About", to: "/about" },
+  { label: "Advice", to: "/advice-and-resources" },
+  { label: "Careers", to: "/careers" },
 ];
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +41,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4 md:gap-6 opacity-90">
             <a href="#existing" className="hover:opacity-100 hidden sm:inline">Existing clients</a>
             <a href="#careers" className="hover:opacity-100 hidden sm:inline">Careers</a>
-            <a href="#assessment" className="hover:opacity-100 hidden sm:inline">Contact</a>
+            <a href="#contact" className="hover:opacity-100 hidden sm:inline">Contact</a>
             <a href="tel:01156812514" className="inline-flex items-center gap-1.5 font-medium">
               <Phone className="w-3.5 h-3.5" /> 0115 681 2514
             </a>
@@ -51,26 +55,37 @@ export default function Navbar() {
           scrolled ? "bg-background/95 backdrop-blur border-b border-border" : "bg-background/70 backdrop-blur-sm"
         }`}
       >
-        <div className="container-x flex items-center justify-between ">
+        <div className="container-x flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2">
-            <Image src='/moreloved-logo.png' height={100} width={100} alt="MoreLoved Care" className="h-20 w-30 " />
+            <Image src='/moreloved-logo.png' height={100} width={100} alt="MoreLoved Care" className="h-12 w-20 " />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
-            {nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                className="text-sm text-foreground/80 hover:text-primary transition-colors relative group"
-              >
-                {n.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all group-hover:w-full" />
-              </a>
-            ))}
+            {nav.map((n) =>
+              n.to ? (
+                <Link
+                  key={n.label}
+                  href={n.to}
+                  className="text-sm text-foreground/80 hover:text-primary transition-colors relative group"
+                >
+                  {n.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all group-hover:w-full" />
+                </Link>
+              ) : (
+                <a
+                  key={n.label}
+                  href={n.href}
+                  className="text-sm text-foreground/80 hover:text-primary transition-colors relative group"
+                >
+                  {n.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all group-hover:w-full" />
+                </a>
+              )
+            )}
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <a href="#assessment" className="btn-outline text-sm py-2! px-4!">Refer</a>
+            <a href="#referral" className="btn-outline text-sm py-2! px-4!">Refer</a>
             <a href="#assessment" className="btn-primary text-sm py-2! px-4!">Request assessment</a>
           </div>
 
@@ -86,18 +101,29 @@ export default function Navbar() {
         {open && (
           <div className="lg:hidden border-t border-border bg-background">
             <div className="container-x py-4 flex flex-col gap-3">
-              {nav.map((n) => (
-                <a
-                  key={n.href}
-                  href={n.href}
-                  onClick={() => setOpen(false)}
-                  className="py-2 text-foreground/80 border-b border-border/60"
-                >
-                  {n.label}
-                </a>
-              ))}
+              {nav.map((n) =>
+                n.to ? (
+                  <Link
+                    key={n.label}
+                    href={n.to}
+                    onClick={() => setOpen(false)}
+                    className="py-2 text-foreground/80 border-b border-border/60"
+                  >
+                    {n.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={n.label}
+                    href={n.href}
+                    onClick={() => setOpen(false)}
+                    className="py-2 text-foreground/80 border-b border-border/60"
+                  >
+                    {n.label}
+                  </a>
+                )
+              )}
               <div className="flex gap-2 pt-2">
-                <a href="#assessment" className="btn-outline flex-1 text-sm">Refer</a>
+                <a href="#referral" className="btn-outline flex-1 text-sm">Refer</a>
                 <a href="#assessment" className="btn-primary flex-1 text-sm">Assessment</a>
               </div>
             </div>
