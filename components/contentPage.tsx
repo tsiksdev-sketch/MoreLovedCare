@@ -106,9 +106,9 @@ export function ContentPage({ page }: { page: PageContent }) {
         </section>
 
         {/* Sections */}
-        <section className="py-20 lg:py-28">
-          <div className="container-x grid lg:grid-cols-12 gap-12">
-            <aside className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start hidden lg:block">
+        <section className=" w-full py-20 ">
+          <div className="container-x w-full flex flex-row gap-12">
+            <div className="flex-3 md:sticky md:top-32 md:self-start hidden md:block">
               <p className="eyebrow">On this page</p>
               <ul className="mt-4 space-y-2 text-sm">
                 {page.sections.map((s, i) => (
@@ -133,9 +133,9 @@ export function ContentPage({ page }: { page: PageContent }) {
                   </li>
                 )}
               </ul>
-            </aside>
+            </div>
 
-            <div className="lg:col-span-9 space-y-14">
+            <div className="flex-9">
               {page.sections.map((s, i) => (
                 <Reveal key={i}>
                   <article id={`s-${i}`} className="scroll-mt-32">
@@ -157,7 +157,7 @@ export function ContentPage({ page }: { page: PageContent }) {
 
         {/* FAQ */}
         {page.faqs.length > 0 && (
-          <section id="faqs" className="py-20 lg:py-28 bg-cream/60 scroll-mt-32">
+          <section id="faqs" className="py-20 md:py-28 bg-cream/60 scroll-mt-32">
             <div className="container-x max-w-4xl">
               <Reveal>
                 <p className="eyebrow">Answers</p>
@@ -177,7 +177,7 @@ export function ContentPage({ page }: { page: PageContent }) {
 
         {/* CTAs */}
         {page.ctas.length > 0 && (
-          <section className="py-20 lg:py-28 bg-primary text-primary-foreground relative overflow-hidden">
+          <section className="py-20 md::py-28 bg-primary text-primary-foreground relative overflow-hidden">
             <div className="absolute inset-0 opacity-15 pointer-events-none" aria-hidden>
               <div className="absolute -top-32 -left-20 w-125 h-125 rounded-full bg-gold blur-3xl" />
             </div>
