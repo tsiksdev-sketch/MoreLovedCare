@@ -1,0 +1,22 @@
+import { ContentPage } from "@/components/contentPage";
+import { pageContents } from "@/constants/pages";
+import type { Metadata } from "next";
+
+const page = pageContents["advice-and-resources"];
+
+export const metadata: Metadata = {
+  title: page.seoTitle,
+  description: page.metaDescription,
+  alternates: {
+    canonical: page.url,
+  },
+  openGraph: {
+    title: page.seoTitle,
+    description: page.metaDescription,
+    type: "article",
+  },
+};
+
+export default function AboutPage() {
+  return <ContentPage page={page} />;
+}
