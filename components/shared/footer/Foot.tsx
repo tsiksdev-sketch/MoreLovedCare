@@ -23,11 +23,11 @@ export default function Foot() {
         <div className="lg:col-span-2">
           <h4 className="text-sm font-semibold mb-4 tracking-widest uppercase opacity-70">Care</h4>
           <ul className="space-y-2 text-sm opacity-90">
-            <li><a href="#services" className="hover:opacity-100">Personal care</a></li>
-            <li><a href="#services" className="hover:opacity-100">Older people</a></li>
-            <li><a href="#services" className="hover:opacity-100">Dementia support</a></li>
-            <li><a href="#services" className="hover:opacity-100">Disability support</a></li>
-            <li><a href="#services" className="hover:opacity-100">Children & young people</a></li>
+            <li><a href="/care-and-support/personal-care" className="hover:opacity-100">Personal care</a></li>
+            <li><a href="/care-and-support/support-for-older-people" className="hover:opacity-100">Older people</a></li>
+            <li><a href="/care-and-support/dementia-care" className="hover:opacity-100">Dementia support</a></li>
+            <li><a href="/care-and-support/physical-disability-support" className="hover:opacity-100">Disability support</a></li>
+            <li><a href="/care-and-support/children-and-young-people" className="hover:opacity-100">Children & young people</a></li>
           </ul>
         </div>
 
