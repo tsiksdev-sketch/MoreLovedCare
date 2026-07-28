@@ -1,6 +1,7 @@
 import { ContentPage } from "@/components/contentPage";
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
+import { FormPage } from "@/components/formPage";
 
 const page = pageContents["for-professiionals__make-a-referral"];
 
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ContentPage page={page} />;
+  return <FormPage page={page} kind='referral' />;
 }

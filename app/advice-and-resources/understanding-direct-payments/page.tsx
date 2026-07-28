@@ -1,4 +1,4 @@
-import { ContentPage } from "@/components/contentPage";
+
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
 import { LeafPage } from "@/components/leafPage";

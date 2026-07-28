@@ -1,6 +1,7 @@
 import { ContentPage } from "@/components/contentPage";
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
+import { LeafPage } from "@/components/leafPage";
 
 const page = pageContents["for-families__existing-clients-and-families"];
 
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ContentPage page={page} />;
+  return <LeafPage page={page} />;
 }
