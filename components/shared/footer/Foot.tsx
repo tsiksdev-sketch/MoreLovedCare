@@ -65,7 +65,7 @@ export default function Foot() {
        
           <a href="#" className="hover:opacity-100">Accessibility</a>
           <a href="#" className="hover:opacity-100">Terms</a>
-          <a href="#" className="hover:opacity-100">Sitemap</a>
+          <a href="/sitemap" className="hover:opacity-100">Sitemap</a>
         </div>
       </div>
     </footer>
