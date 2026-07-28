@@ -1,9 +1,8 @@
-
+import { ContentPage } from "@/components/contentPage";
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
-import { FormPage } from "@/components/formPage";
 
-const page = pageContents["contact"];
+const page = pageContents["how-care-begins__funding-and-paying-for-care"];
 
 export const metadata: Metadata = {
   title: page.seoTitle,
@@ -19,5 +18,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <FormPage page={page} kind="contact" />;
+  return <ContentPage page={page} />;
 }

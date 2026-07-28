@@ -27,7 +27,7 @@ export default function HeroParallax({
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.85]);
 
   return (
-    <section ref={heroRef} className="relative h-[68vh] min-h-130 overflow-hidden">
+    <section ref={heroRef} className="relative md:mt-30 h-[68vh] min-h-130 overflow-hidden">
       <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0">
         {/*
           Pass the imported static image object directly to `src`. Next.js then
