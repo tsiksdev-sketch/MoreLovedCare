@@ -3,7 +3,7 @@ import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
 import { LeafPage } from "@/components/leafPage";
 
-const page = pageContents["for-professionals__proffesional-documents"];
+const page = pageContents["for-professionals__professional-documents"];
 
 export const metadata: Metadata = {
   title: page.seoTitle,
