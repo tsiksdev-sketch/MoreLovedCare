@@ -40,8 +40,8 @@ export default function Navbar() {
           </span>
           <div className="flex items-center gap-4 md:gap-6 opacity-90">
             <a href="#existing" className="hover:opacity-100 hidden sm:inline">Existing clients</a>
-            <a href="#careers" className="hover:opacity-100 hidden sm:inline">Careers</a>
-            <a href="#contact" className="hover:opacity-100 hidden sm:inline">Contact</a>
+            <a href="/careers" className="hover:opacity-100 hidden sm:inline">Careers</a>
+            <a href="/contact" className="hover:opacity-100 hidden sm:inline">Contact</a>
             <a href="tel:01156812514" className="inline-flex items-center gap-1.5 font-medium">
               <Phone className="w-3.5 h-3.5" /> 0115 681 2514
             </a>
