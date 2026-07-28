@@ -1,9 +1,9 @@
-import { ContentPage } from "@/components/contentPage";
+
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
 import { FormPage } from "@/components/formPage";
 
-const page = pageContents["for-professiionals__make-a-referral"];
+const page = pageContents["for-professi onals__make-a-referral"];
 
 export const metadata: Metadata = {
   title: page.seoTitle,
