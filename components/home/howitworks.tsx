@@ -92,8 +92,8 @@ export function HowItWorks() {
               </div>
             ))}
             <div className="pl-0 pt-2 flex flex-wrap gap-3">
-              <a href="#how-more" className="btn-primary">See how care begins</a>
-              <a href="#prepare" className="btn-outline">Prepare for a care assessment</a>
+              <a href="/how-care-begins" className="btn-primary">See how care begins</a>
+              <a href="/request-care-assessment" className="btn-outline">Prepare for a care assessment</a>
             </div>
           </div>
         </div>

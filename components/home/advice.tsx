@@ -1,11 +1,12 @@
 import Reveal from "./reveal";
 import { BookOpen, ClipboardList, HeartHandshake, PoundSterling, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const guides = [
-  { icon: BookOpen, title: "Choosing home care", text: "Questions to ask about registration, assessment, staff, costs and complaints." },
-  { icon: ClipboardList, title: "Preparing for an assessment", text: "What to think about routines, priorities, current support and changing needs." },
-  { icon: HeartHandshake, title: "Hospital discharge checklist", text: "Medication, equipment, home access, meals, follow-up and support arrangements." },
-  { icon: PoundSterling, title: "Direct payments", text: "Choosing a provider and agreeing support with a personal budget or direct payment." },
+  { icon: BookOpen, title: "Choosing home care", text: "Questions to ask about registration, assessment, staff, costs and complaints." ,to:"/choosing-home-care"},
+  { icon: ClipboardList, title: "Preparing for an assessment", text: "What to think about routines, priorities, current support and changing needs.",to:"/request-care-assessment" },
+  { icon: HeartHandshake, title: "Hospital discharge checklist", text: "Medication, equipment, home access, meals, follow-up and support arrangements.",to:"/care-and-support/hospital-discharge-support" },
+  { icon: PoundSterling, title: "Direct payments", text: "Choosing a provider and agreeing support with a personal budget or direct payment.",to:"/how-care-begins/direct-payments-and-personal-budgets" },
 ];
 
 export function Advice() {
@@ -34,16 +35,19 @@ export function Advice() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {guides.map((g, i) => (
             <Reveal key={g.title} delay={i * 0.08}>
-              <a href="#" className="group block p-7 card-soft h-full">
+                 <Link href={g.to}>
+              <div  className="group block p-7 card-soft h-full">
                 <div className="w-11 h-11 rounded-xl bg-blush text-primary flex items-center justify-center">
                   <g.icon className="w-5 h-5" />
                 </div>
                 <h3 className="mt-5 text-lg text-foreground">{g.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{g.text}</p>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm text-primary font-medium transition-all group-hover:gap-2">
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{g.text}</p> 
+             
+                  <span className="inline-flex items-center gap-1 mt-4 text-sm text-primary font-medium transition-all group-hover:gap-2">
                   Read guide <ArrowRight className="w-3.5 h-3.5" />
                 </span>
-              </a>
+              </div>
+                </Link>
             </Reveal>
           ))}
         </div>

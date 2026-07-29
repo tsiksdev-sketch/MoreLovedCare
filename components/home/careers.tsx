@@ -46,8 +46,8 @@ export function Careers() {
               and support needed for their role.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#careers-more" className="btn-primary">Explore careers</a>
-              <a href="#recruit" className="btn-outline">How we recruit & prepare staff</a>
+              <a href="/careers" className="btn-primary">Explore careers</a>
+              <a href="/careers/recruitment-process" className="btn-outline">How we recruit & prepare staff</a>
             </div>
           </Reveal>
         </div>

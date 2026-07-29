@@ -1,9 +1,9 @@
-
+import { ContentPage } from "@/components/contentPage";
 import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/legalPage";
+import { FormPage } from "@/components/formPage";
 
-const page = pageContents["website-sitemap"];
+const page = pageContents["existing-client-help"];
 
 export const metadata: Metadata = {
   title: page.seoTitle,
@@ -19,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <LegalPage page={page} />;
+  return <FormPage page={page} kind="existing" />;
 }

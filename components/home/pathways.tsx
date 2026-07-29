@@ -30,10 +30,10 @@ export function Pathways() {
                 enquiry does not commit you to anything.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="#assessment" className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-3 text-sm font-medium hover:bg-gold/90 transition">
+                <a href="/request-care-assessment" className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-3 text-sm font-medium hover:bg-gold/90 transition">
                   Request a care assessment <ArrowRight className="w-4 h-4" />
                 </a>
-                <a href="#families-info" className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all">
+                <a href="/for-families" className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all">
                   Information for families →
                 </a>
               </div>
@@ -50,10 +50,10 @@ export function Pathways() {
                 submit relevant documents securely.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="#referral" className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-3 text-sm font-medium hover:bg-gold/90 transition">
+                <a href="/for-professionals/make-a-referral" className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-3 text-sm font-medium hover:bg-gold/90 transition">
                   Make a referral <ArrowRight className="w-4 h-4" />
                 </a>
-                <a href="#professionals-info" className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all">
+                <a href="/for-professionals" className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all">
                   Commissioner information →
                 </a>
               </div>

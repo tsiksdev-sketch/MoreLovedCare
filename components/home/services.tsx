@@ -124,8 +124,8 @@ export function Services() {
 
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
-            <a href="#all-services" className="btn-primary">View all services</a>
-            <a href="#assessment" className="btn-outline">Ask if we can support you</a>
+            <a href="/care-and-support" className="btn-primary">View all services</a>
+            <a href="/contact" className="btn-outline">Ask if we can support you</a>
           </div>
         </Reveal>
       </div>

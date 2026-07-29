@@ -3,7 +3,7 @@ import { pageContents } from "@/constants/pages";
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/legalPage";
 
-const page = pageContents["website-sitemap"];
+const page = pageContents["privacy-notice"];
 
 export const metadata: Metadata = {
   title: page.seoTitle,

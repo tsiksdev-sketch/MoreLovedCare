@@ -62,10 +62,10 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <a href="#assessment" className="btn-primary">
+            <a href="/request-care-assessment" className="btn-primary">
               Request a care assessment <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="#referral" className="btn-outline">
+            <a href="/for-professionals/make-a-referral" className="btn-outline">
               Professional referral
             </a>
             <a

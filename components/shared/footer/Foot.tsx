@@ -34,11 +34,11 @@ export default function Foot() {
         <div className="lg:col-span-2">
           <h4 className="text-sm font-semibold mb-4 tracking-widest uppercase opacity-70">Company</h4>
           <ul className="space-y-2 text-sm opacity-90">
-            <li><a href="#about" className="hover:opacity-100">About us</a></li>
-            <li><a href="#quality" className="hover:opacity-100">Quality</a></li>
-            <li><a href="#careers" className="hover:opacity-100">Careers</a></li>
-            <li><a href="#advice" className="hover:opacity-100">Advice hub</a></li>
-            <li><a href="#contact" className="hover:opacity-100">Contact</a></li>
+            <li><a href="/about" className="hover:opacity-100">About us</a></li>
+            <li><a href="/quality-and-safety" className="hover:opacity-100">Quality</a></li>
+            <li><a href="/careers" className="hover:opacity-100">Careers</a></li>
+            <li><a href="/advice-and-resources" className="hover:opacity-100">Advice hub</a></li>
+            <li><a href="/contact" className="hover:opacity-100">Contact</a></li>
           </ul>
         </div>
 
@@ -61,10 +61,10 @@ export default function Foot() {
       <div className="container-x mt-12 pt-6 border-t border-primary-foreground/15 flex flex-col md:flex-row gap-4 justify-between text-xs opacity-70">
         <p>© 2026 MoreLoved Care Ltd. Company no. 12932401. All rights reserved.</p>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
-          <a href="#" className="hover:opacity-100">Privacy</a>
+          <a href="/privacy-notice" className="hover:opacity-100">Privacy</a>
        
-          <a href="#" className="hover:opacity-100">Accessibility</a>
-          <a href="#" className="hover:opacity-100">Terms</a>
+          <a href="/accessibility-statement" className="hover:opacity-100">Accessibility</a>
+          <a href="/terms-of-use" className="hover:opacity-100">Terms</a>
           <a href="/sitemap" className="hover:opacity-100">Sitemap</a>
         </div>
       </div>

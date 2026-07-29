@@ -51,7 +51,7 @@ export function FromUsToYou() {
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <a href="#story" className="btn-ghost">
+            <a href="/about/our-story-and-ethos" className="btn-ghost">
               Read our story and ethos →
             </a>
           </Reveal>
