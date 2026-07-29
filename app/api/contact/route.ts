@@ -86,8 +86,8 @@ export async function POST(request: Request) {
   try {
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
-      to: TO_EMAIL,
-      subject: `[${kind}] ${title}${values.name ? ` — ${values.name}` : ""}`,
+      to:  [TO_EMAIL, "hello@morelovedcare.co.uk"],
+      subject: `Moreloved Care Website [${kind}] ${title}${values.name ? ` — ${values.name}` : ""}`,
       replyTo,
       html,
     })
