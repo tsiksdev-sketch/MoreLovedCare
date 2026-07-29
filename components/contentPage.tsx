@@ -207,7 +207,7 @@ export function ContentPage({ page }: { page: PageContent }) {
                 </h2>
 
                 <p className="mt-4 text-primary-foreground/80 leading-relaxed">
-                  Every enquiry begins with a conversation — no commitment, no pressure.
+                  Every enquiry begins with a conversation no commitment, no pressure.
                 </p>
 
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
