@@ -3,101 +3,71 @@
 import { useState, type FormEvent } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import { Phone, Mail, Clock, MapPin, ShieldAlert, CheckCircle2, ArrowRight } from "lucide-react"
 import Reveal from "./home/reveal"
 import type { PageContent } from "@/constants/pages"
-
-type FormKind = "contact" | "assessment" | "existing" | "safeguarding" | "referral"
-
-const fieldSets: Record<
-  FormKind,
-  { label: string; name: string; type?: string; required?: boolean; textarea?: boolean; placeholder?: string }[]
-> = {
-  contact: [
-    { label: "Your name", name: "name", required: true },
-    { label: "Contact number", name: "phone", type: "tel" },
-    { label: "Email", name: "email", type: "email", required: true },
-    { label: "Postcode of person needing care", name: "postcode" },
-    {
-      label: "How can we help?",
-      name: "message",
-      textarea: true,
-      required: true,
-      placeholder: "A short description of the situation and how urgent it feels.",
-    },
-  ],
-  assessment: [
-    { label: "Your name", name: "name", required: true },
-    { label: "Relationship to the person", name: "relationship", placeholder: "Self / relative / professional" },
-    { label: "Phone", name: "phone", type: "tel", required: true },
-    { label: "Email", name: "email", type: "email" },
-    { label: "Postcode", name: "postcode", required: true },
-    { label: "Awareness — is the person aware of this enquiry?", name: "awareness" },
-    { label: "Funding route", name: "funding", placeholder: "Self-funded / Local authority / NHS CHC / Direct payment / Unsure" },
-    { label: "Describe the current situation and support needed", name: "situation", textarea: true, required: true },
-  ],
-  existing: [
-    { label: "Your name", name: "name", required: true },
-    { label: "Person receiving care", name: "person" },
-    { label: "Phone", name: "phone", type: "tel", required: true },
-    { label: "What has changed or what do you need?", name: "message", textarea: true, required: true },
-  ],
-  safeguarding: [
-    { label: "Your name", name: "name" },
-    { label: "Contact number", name: "phone", type: "tel" },
-    { label: "Person the concern relates to", name: "person" },
-    { label: "Location or postcode", name: "location" },
-    {
-      label: "Nature of the concern",
-      name: "concern",
-      textarea: true,
-      required: true,
-      placeholder: "What has happened, when, who was involved, is there immediate risk?",
-    },
-  ],
-  referral: [
-    { label: "Referrer full name", name: "name", required: true },
-    { label: "Role / job title", name: "role", required: true },
-    { label: "Organisation", name: "org", required: true },
-    { label: "Work email", name: "email", type: "email", required: true },
-    { label: "Work phone", name: "phone", type: "tel", required: true },
-    { label: "Person being referred", name: "person" },
-    { label: "Postcode", name: "postcode", required: true },
-    { label: "Funding route", name: "funding", placeholder: "LA / NHS CHC / S117 / Direct payment / Self-funded" },
-    { label: "Presenting need and urgency", name: "need", textarea: true, required: true },
-  ],
-}
-
-const thankYouRoute: Record<FormKind, string> = {
-  contact: "/thank-you/care-enquiry",
-  assessment: "/thank-you/care-enquiry",
-  existing: "/thank-you/complaint-or-feedback",
-  safeguarding: "/thank-you/safeguarding-report",
-  referral: "/thank-you/professional-referral",
-}
+import { fieldSets, formTitles, validateForm, type FormKind, type FormValues } from "@/lib/forms"
 
 export function FormPage({ page, kind }: { page: PageContent; kind: FormKind }) {
   const fields = fieldSets[kind]
-  const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitting(true)
-    // Simulated submission — swap for a Server Action or route handler POST here.
-    await new Promise((r) => setTimeout(r, 600))
-    router.push(thankYouRoute[kind])
-  }
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [formError, setFormError] = useState<string | null>(null)
+  const [sent, setSent] = useState(false)
+  const [agreed, setAgreed] = useState(false)
 
   const urgent = kind === "safeguarding"
 
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormError(null)
+
+    const formEl = e.currentTarget
+    const data = new FormData(formEl)
+    const values: FormValues = {}
+    for (const field of fields) {
+      values[field.name] = String(data.get(field.name) ?? "")
+    }
+
+    // Client-side validation using the same rules the server enforces.
+    const nextErrors = validateForm(kind, values)
+    if (!agreed) nextErrors.privacy = "Please confirm you've read the privacy notice."
+    setErrors(nextErrors)
+    if (Object.keys(nextErrors).length > 0) {
+      setFormError("Please check the highlighted fields.")
+      return
+    }
+
+    setSubmitting(true)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind, ...values }),
+      })
+      const result = await res.json()
+
+      if (!res.ok) {
+        if (result.fieldErrors) setErrors(result.fieldErrors)
+        setFormError(result.error ?? "Something went wrong. Please try again.")
+        return
+      }
+
+      setSent(true)
+      formEl.reset()
+      setAgreed(false)
+    } catch {
+      setFormError("Network error. Please check your connection and try again.")
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-cream text-foreground">
-   
       <main>
         {/* Hero */}
-        <section className={`relative pt-40 pb-16 overflow-hidden ${urgent ? "bg-primary text-primary-foreground" : ""}`}>
+        <section className={`relative pt-24 pb-16 overflow-hidden ${urgent ? "bg-primary text-primary-foreground" : ""}`}>
           <div className="absolute inset-0 opacity-20 pointer-events-none" aria-hidden>
             <div className="absolute -top-40 -right-40 w-150 h-150 rounded-full bg-gold blur-3xl" />
           </div>
@@ -110,7 +80,7 @@ export function FormPage({ page, kind }: { page: PageContent; kind: FormKind }) 
                 {page.breadcrumb.map((c, i) => {
                   const isLast = i === page.breadcrumb.length - 1
                   return (
-                    <li key={c.to} className="flex items-center gap-2">
+                    <li key={`${c.label}-${i}`} className="flex items-center gap-2">
                       {isLast ? (
                         <span>{c.label}</span>
                       ) : (
@@ -131,7 +101,7 @@ export function FormPage({ page, kind }: { page: PageContent; kind: FormKind }) 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className={`mt-4 text-4xl md:text-6xl leading-[1.05] max-w-4xl ${urgent ? "" : "text-primary"}`}
+              className={`mt-4 text-4xl md:text-6xl leading-[1.05] max-w-4xl text-balance ${urgent ? "" : "text-primary"}`}
             >
               {page.heroHeading}
             </motion.h1>
@@ -156,55 +126,103 @@ export function FormPage({ page, kind }: { page: PageContent; kind: FormKind }) 
           <div className="container-x grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-7">
               <Reveal>
-                <form onSubmit={onSubmit} className="card-soft p-8 md:p-10 space-y-5">
-                  <p className="eyebrow">Send a secure message</p>
-                  <h2 className="text-2xl md:text-3xl text-primary">Tell us what&apos;s happening</h2>
-
-                  <div className="grid md:grid-cols-2 gap-4 pt-2">
-                    {fields.map((f, i) => (
-                      <label
-                        key={f.name}
-                        className={`block ${f.textarea || i === fields.length - 1 ? "md:col-span-2" : ""}`}
-                      >
-                        <span className="text-sm text-foreground/80">
-                          {f.label} {f.required && <span className="text-gold">*</span>}
-                        </span>
-                        {f.textarea ? (
-                          <textarea
-                            name={f.name}
-                            required={f.required}
-                            rows={5}
-                            placeholder={f.placeholder}
-                            className="mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
-                          />
-                        ) : (
-                          <input
-                            name={f.name}
-                            type={f.type ?? "text"}
-                            required={f.required}
-                            placeholder={f.placeholder}
-                            className="mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
-                          />
-                        )}
-                      </label>
-                    ))}
+                {sent ? (
+                  <div className="card-soft p-8 md:p-10" role="status" aria-live="polite">
+                    <div className="flex items-center gap-3 text-primary">
+                      <CheckCircle2 className="w-8 h-8 text-gold" />
+                      <h2 className="text-2xl md:text-3xl">Message sent</h2>
+                    </div>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      Thank you — your {formTitles[kind].toLowerCase()} has been sent to our team. We aim to respond
+                      within one working day.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setSent(false)}
+                      className="btn-primary text-sm mt-6 inline-flex items-center gap-2"
+                    >
+                      Send another message <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
+                ) : (
+                  <form onSubmit={onSubmit} noValidate className="card-soft p-8 md:p-10 space-y-5">
+                    <p className="eyebrow">Send a secure message</p>
+                    <h2 className="text-2xl md:text-3xl text-primary">Tell us what&apos;s happening</h2>
 
-                  <label className="flex items-start gap-3 text-sm text-muted-foreground pt-2">
-                    <input type="checkbox" required className="mt-1 accent-primary" />
-                    <span>
-                      I&apos;ve read the{" "}
-                      <Link href="/privacy-notice" className="text-primary underline underline-offset-2">
-                        privacy notice
-                      </Link>{" "}
-                      and understand how my information will be used.
-                    </span>
-                  </label>
+                    <div className="grid md:grid-cols-2 gap-4 pt-2">
+                      {fields.map((f, i) => {
+                        const err = errors[f.name]
+                        const fieldClass = `mt-1.5 w-full rounded-md border bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 ${
+                          err
+                            ? "border-destructive focus:border-destructive focus:ring-destructive/20"
+                            : "border-border focus:border-primary focus:ring-primary/20"
+                        }`
+                        return (
+                          <label
+                            key={f.name}
+                            className={`block ${f.textarea || i === fields.length - 1 ? "md:col-span-2" : ""}`}
+                          >
+                            <span className="text-sm text-foreground/80">
+                              {f.label} {f.required && <span className="text-gold">*</span>}
+                            </span>
+                            {f.textarea ? (
+                              <textarea
+                                name={f.name}
+                                rows={5}
+                                placeholder={f.placeholder}
+                                aria-invalid={!!err}
+                                className={fieldClass}
+                              />
+                            ) : (
+                              <input
+                                name={f.name}
+                                type={f.type ?? "text"}
+                                placeholder={f.placeholder}
+                                aria-invalid={!!err}
+                                className={fieldClass}
+                              />
+                            )}
+                            {err && <span className="mt-1 block text-xs text-destructive">{err}</span>}
+                          </label>
+                        )
+                      })}
+                    </div>
 
-                  <button type="submit" disabled={submitting} className="btn-primary text-sm inline-flex items-center gap-2">
-                    {submitting ? "Sending…" : "Send securely"} <ArrowRight className="w-4 h-4" />
-                  </button>
-                </form>
+                    <div>
+                      <label className="flex items-start gap-3 text-sm text-muted-foreground pt-2">
+                        <input
+                          type="checkbox"
+                          checked={agreed}
+                          onChange={(e) => setAgreed(e.target.checked)}
+                          aria-invalid={!!errors.privacy}
+                          className="mt-1 accent-primary"
+                        />
+                        <span>
+                          I&apos;ve read the{" "}
+                          <Link href="#" className="text-primary underline underline-offset-2">
+                            privacy notice
+                          </Link>{" "}
+                          and understand how my information will be used.
+                        </span>
+                      </label>
+                      {errors.privacy && <span className="mt-1 block text-xs text-destructive">{errors.privacy}</span>}
+                    </div>
+
+                    {formError && (
+                      <p className="text-sm text-destructive" role="alert">
+                        {formError}
+                      </p>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="btn-primary text-sm inline-flex items-center gap-2 disabled:opacity-60"
+                    >
+                      {submitting ? "Sending…" : "Send securely"} <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </form>
+                )}
               </Reveal>
             </div>
 
@@ -307,7 +325,6 @@ export function FormPage({ page, kind }: { page: PageContent; kind: FormKind }) 
           </section>
         )}
       </main>
-    
     </div>
   )
 }
