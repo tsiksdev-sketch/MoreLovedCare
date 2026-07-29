@@ -16,12 +16,28 @@ import serviceDaily from "@/public/service-daily.jpg";
 import serviceOlder from "@/public/service-older.jpg";
 import serviceDementia from "@/public/service-dementia.jpg";
 import careers from "@/public/careers.jpg";
+import about from "@/public/hero-about.jpg"
+import careershero from "@/public/hero-careers.jpg"
+import advicehero from "@/public/hero-advice.jpg"
+import careandsupporthero from "@/public/hero-care-and-support.jpg"
+import forfamilieshero from "@/public/hero-for-families.jpg"
+import forprofessionalshero from "@/public/hero-for-professionals.jpg"
+import howcarebeginshero from "@/public/hero-how-care-begins.jpg"
+import heroqualityandsafety from "@/public/hero-quality-and-safety.jpg"
 
 // NOTE: ideally store the image on each page object in constants/pages
 // (e.g. `page.heroImage`) instead of matching on the URL string here.
 function heroImageFor(url: string): StaticImageData {
   if (url.includes("dementia")) return serviceDementia;
   if (url.includes("older-people")) return serviceOlder;
+  if (url.includes("about")) return about;
+  if (url.includes("careers")) return careershero;
+  if (url.includes("advice")) return advicehero;
+  if (url.includes("care-and-support")) return careandsupporthero;
+  if (url.includes("for-families")) return forfamilieshero;
+  if (url.includes("for-professionals")) return forprofessionalshero;
+  if (url.includes("how-care-begins")) return howcarebeginshero;
+  if (url.includes("quality-and-safety")) return heroqualityandsafety;
   if (
     url.includes("personal-care") ||
     url.includes("companionship") ||
