@@ -14,7 +14,7 @@ export function FinalCTA() {
             </h2>
             <p className="mt-6 text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto">
               You do not need to know every care term or have every document ready before making
-              contact. Tell us who the support is for and what is happening now — we will listen
+              contact. Tell us who the support is for and what is hwe will listen
               and explain the next step.
             </p>
           </div>
