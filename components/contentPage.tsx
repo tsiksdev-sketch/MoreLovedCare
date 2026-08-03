@@ -219,7 +219,7 @@ export function ContentPage({ page }: { page: PageContent }) {
                     return (
                       <a
                         key={i}
-                       
+                       href={c.to}
                         className={
                           primary
                             ? "inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-6 py-3 text-sm font-medium hover:bg-gold/90 transition"

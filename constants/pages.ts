@@ -1,5 +1,5 @@
 // AUTO-GENERATED CONTENT - MoreLoved Care information pages
-export type PageCTA = { kind: string; label: string };
+export type PageCTA = { kind: string; label: string; to: string };
 export type PageSection = { heading: string; text: string };
 export type PageFAQ = { q: string; a: string };
 export type PageContent = {
@@ -69,21 +69,26 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request a care assessment"
+        "label": "Request a care assessment",
+         "to": "/request-care-assessment",
+        
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "/for-professionals/make-a-referral",
       },
       {
         "kind": "Supporting action",
-        "label": "See how care begins"
+        "label": "See how care begins",
+         "to": "/how-care-begins",
       }
     ],
     "faqs": [
       {
         "q": "Do I need to know exactly which service I need?",
         "a": "No. Tell us what is happening and what help may be needed. We will ask practical questions and explain which current service route may fit."
+        
       },
       {
         "q": "Can care be arranged privately?",
@@ -168,15 +173,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss Personal care"
+        "label": "Discuss Personal care",
+         "to": "/care-and-support/personal-care",
       },
       {
         "kind": "Secondary",
-        "label": "See how assessment works"
+        "label": "See how assessment works",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read about rights, choice and consent"
+        "label": "Read about rights, choice and consent",
+         "to": "/privacy-notice",
       }
     ],
     "faqs": [
@@ -251,15 +259,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Talk to us about support at home"
+        "label": "Talk to us about support at home",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Prepare for a care assessment"
+        "label": "Prepare for a care assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read about funding and paying for care"
+        "label": "Read about funding and paying for care",
+         "to": "/privacy-notice",
       }
     ],
     "faqs": [
@@ -338,15 +349,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss dementia support"
+        "label": "Discuss dementia support",
+         "to": "/care-and-support/dementia-care",
       },
       {
         "kind": "Secondary",
-        "label": "Read our dementia-at-home guide"
+        "label": "Read our dementia-at-home guide",
+         "to": "/care-and-support/support-for-older-people",
       },
       {
         "kind": "Supporting action",
-        "label": "Tell us about communication needs"
+        "label": "Tell us about communication needs",
+         "to": "/contact",
       }
     ],
     "faqs": [
@@ -421,15 +435,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss physical-disability support"
+        "label": "Discuss physical-disability support",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Request an assessment"
+        "label": "Request an assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read about rights and choice"
+        "label": "Read about rights and choice",
+         "to": "/privacy-notice",
       }
     ],
     "faqs": [
@@ -504,15 +521,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss mental health-related support"
+        "label": "Discuss mental health-related support",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+        "to": "/professionals/make-a-referral"
       },
       {
         "kind": "Supporting action",
-        "label": "Read our safeguarding information"
+        "label": "Read our safeguarding information",
+        "to": "/privacy-notice"
       }
     ],
     "faqs": [
@@ -587,15 +607,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss everyday support"
+        "label": "Discuss everyday support",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Read about direct payments"
+        "label": "Read about direct payments",
+         "to": "/how-care-begins/direct-payments-and-personal-budgets",
       },
       {
         "kind": "Supporting action",
-        "label": "View all current services"
+        "label": "View all current services",
+         "to": "/care-and-support",
       }
     ],
     "faqs": [
@@ -674,15 +697,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Ask about medication support"
+        "label": "Ask about medication support",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read about staff competency"
+        "label": "Read about staff competency",
+         "to": "/for-professionals/make-a-referral",
       }
     ],
     "faqs": [
@@ -757,15 +783,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request discharge support"
+        "label": "Request discharge support",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional discharge referral"
+        "label": "Make a professional discharge referral",
+         "to": "/for-professionals/make-a-refferal",
       },
       {
         "kind": "Supporting action",
-        "label": "Download the discharge checklist"
+        "label": "Download the discharge checklist",
+         "to": "/advice-and-resources/hospital-discharge-checklist",
       }
     ],
     "faqs": [
@@ -844,15 +873,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss support for a child or young person"
+        "label": "Discuss support for a child or young person",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "/for-professionals/make-a-referral",
       },
       {
         "kind": "Supporting action",
-        "label": "Request accessible information"
+        "label": "Request accessible information",
+         "to": "/contact",
       }
     ],
     "faqs": [
@@ -927,15 +959,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Ask about respite availability"
+        "label": "Ask about respite availability",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Request an assessment"
+        "label": "Request an assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read information for families"
+        "label": "Read information for families",
+         "to": "/for-families",
       }
     ],
     "faqs": [
@@ -1014,15 +1049,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss overnight or live-in care"
+        "label": "Discuss overnight or live-in care",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Request an assessment"
+        "label": "Request an assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Compare support models"
+        "label": "Compare support models",
+         "to": "/care-and-support",
       }
     ],
     "faqs": [
@@ -1101,15 +1139,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss end-of-life Personal care"
+        "label": "Discuss end-of-life Personal care",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "for-professionals/make-a-refferal",
       },
       {
         "kind": "Supporting action",
-        "label": "Read our care boundaries"
+        "label": "Read our care boundaries",
+         "to": "/how-care-begins",
       }
     ],
     "faqs": [
@@ -1188,15 +1229,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "View current services"
+        "label": "View current services",
+         "to": "/care-and-support",
       },
       {
         "kind": "Secondary",
-        "label": "Read about rights and accessible communication"
+        "label": "Read about rights and accessible communication",
+         "to": "/privacy-notice",
       },
       {
         "kind": "Supporting action",
-        "label": "Contact us with a general development question"
+        "label": "Contact us with a general development question",
+         "to": "/contact",
       }
     ],
     "faqs": [
@@ -1271,15 +1315,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Future CTA: Discuss supported living"
+        "label": "Future CTA: Discuss supported living",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Future CTA: Make a professional referral"
+        "label": "Future CTA: Make a professional referral",
+         "to": "/for-professionals/make-a-refferal",
       },
       {
         "kind": "Supporting action",
-        "label": "Current CTA while held: View current services"
+        "label": "Current CTA while held: View current services",
+         "to": "/care-and-support",
       }
     ],
     "faqs": [
@@ -1354,15 +1401,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Future CTA: Request accessible information"
+        "label": "Future CTA: Request accessible information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Future CTA: Make a specialist referral"
+        "label": "Future CTA: Make a specialist referral",
+         "to": "/for-professionals/make-a-refferal",
       },
       {
         "kind": "Supporting action",
-        "label": "Current CTA while held: View current services"
+        "label": "Current CTA while held: View current services",
+         "to": "/care-and-support",
       }
     ],
     "faqs": [
@@ -1441,15 +1491,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request a care assessment"
+        "label": "Request a care assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "/for-professionals/make-a-refferal",
       },
       {
         "kind": "Supporting action",
-        "label": "Prepare for an assessment"
+        "label": "Prepare for an assessment",
+         "to": "/advice-and-resources/preparing-for-a-care-assessment",
       }
     ],
     "faqs": [
@@ -1540,15 +1593,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request an assessment"
+        "label": "Request an assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Download the preparation checklist"
+        "label": "Download the preparation checklist",
+         "to": "/how-care-begins",
       },
       {
         "kind": "Supporting action",
-        "label": "Read about rights and consent"
+        "label": "Read about rights and consent",
+         "to": "/privacy-notice",
       }
     ],
     "faqs": [
@@ -1631,15 +1687,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss private care"
+        "label": "Discuss private care",
+         "to": "/contact",
       },
       {
         "kind": "Secondary",
-        "label": "Read about direct payments"
+        "label": "Read about direct payments",
+         "to": "/advice-and-resources/understanding-direct-payments",
       },
       {
         "kind": "Supporting action",
-        "label": "Request a care assessment"
+        "label": "Request a care assessment",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -1718,15 +1777,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss a direct-payment package"
+        "label": "Discuss a direct-payment package",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a care assessment"
+        "label": "Request a care assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Download the direct-payment guide"
+        "label": "Download the direct-payment guide",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -1805,15 +1867,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request a care review"
+        "label": "Request a care review",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Get help with current care"
+        "label": "Get help with current care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Give feedback"
+        "label": "Give feedback",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -1893,15 +1958,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss care for a family member"
+        "label": "Discuss care for a family member",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "See how care begins"
+        "label": "See how care begins",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read about funding"
+        "label": "Read about funding",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -1976,15 +2044,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss communication arrangements"
+        "label": "Discuss communication arrangements",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about rights and consent"
+        "label": "Read about rights and consent",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Raise a concern"
+        "label": "Raise a concern",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2063,15 +2134,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Get help with current care"
+        "label": "Get help with current care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a review"
+        "label": "Request a review",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Make a complaint or give feedback"
+        "label": "Make a complaint or give feedback",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2154,15 +2228,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Check referral criteria"
+        "label": "Check referral criteria",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "View professional documents"
+        "label": "View professional documents",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2253,15 +2330,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Submit a social-care referral"
+        "label": "Submit a social-care referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Download the referral checklist"
+        "label": "Download the referral checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Discuss a complex referral"
+        "label": "Discuss a complex referral",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2344,15 +2424,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Make an NHS or CHC referral"
+        "label": "Make an NHS or CHC referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a provider discussion"
+        "label": "Request a provider discussion",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Download clinical-boundary information"
+        "label": "Download clinical-boundary information",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2439,15 +2522,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request commissioner information"
+        "label": "Request commissioner information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Arrange a provider discussion"
+        "label": "Arrange a provider discussion",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "View professional documents"
+        "label": "View professional documents",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2546,15 +2632,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Start a professional referral"
+        "label": "Start a professional referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Download the referral checklist"
+        "label": "Download the referral checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Discuss suitability"
+        "label": "Discuss suitability",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2633,15 +2722,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Download professional documents"
+        "label": "Download professional documents",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request commissioner evidence"
+        "label": "Request commissioner evidence",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Request an accessible format"
+        "label": "Request an accessible format",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2724,15 +2816,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Begin secure referral"
+        "label": "Begin secure referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Download referral checklist"
+        "label": "Download referral checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Request a professional callback"
+        "label": "Request a professional callback",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2811,15 +2906,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Read about quality and governance"
+        "label": "Read about quality and governance",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "View our CQC information"
+        "label": "View our CQC information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Raise a concern or give feedback"
+        "label": "Raise a concern or give feedback",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2898,15 +2996,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request quality information"
+        "label": "Request quality information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about staff competency"
+        "label": "Read about staff competency",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Give feedback"
+        "label": "Give feedback",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -2993,15 +3094,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Report a non-emergency safeguarding concern"
+        "label": "Report a non-emergency safeguarding concern",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Call MoreLoved Care"
+        "label": "Call MoreLoved Care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read how to raise a safeguarding concern"
+        "label": "Read how to raise a safeguarding concern",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3080,15 +3184,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "View the official CQC profile"
+        "label": "View the official CQC profile",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about quality and governance"
+        "label": "Read about quality and governance",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Contact us with a regulatory question"
+        "label": "Contact us with a regulatory question",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3171,15 +3278,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Explore careers"
+        "label": "Explore careers",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about quality and governance"
+        "label": "Read about quality and governance",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Request workforce assurance information"
+        "label": "Request workforce assurance information",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3258,15 +3368,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Tell us your communication needs"
+        "label": "Tell us your communication needs",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "View Easy Read resources"
+        "label": "View Easy Read resources",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Report an accessibility problem"
+        "label": "Report an accessibility problem",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3353,15 +3466,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Ask a question about your rights"
+        "label": "Ask a question about your rights",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request accessible information"
+        "label": "Request accessible information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Raise a concern"
+        "label": "Raise a concern",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3460,15 +3576,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Make a complaint"
+        "label": "Make a complaint",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Give a compliment or suggestion"
+        "label": "Give a compliment or suggestion",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Report a safeguarding concern"
+        "label": "Report a safeguarding concern",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3547,15 +3666,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Read our story and ethos"
+        "label": "Read our story and ethos",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Meet our leadership"
+        "label": "Meet our leadership",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Explore current services"
+        "label": "Explore current services",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3658,15 +3780,19 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "See how care begins"
+        "label": "See how care begins",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about quality and safety"
+        "label": "Read about quality and safety",
+         "to": "/request-care-assessment",
+
       },
       {
         "kind": "Supporting action",
-        "label": "Explore careers"
+        "label": "Explore careers",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3737,15 +3863,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Contact MoreLoved Care"
+        "label": "Contact MoreLoved Care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about quality and governance"
+        "label": "Read about quality and governance",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "View our CQC information"
+        "label": "View our CQC information",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3816,15 +3945,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Visit the Advice and Resources Hub"
+        "label": "Visit the Advice and Resources Hub",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Contact our team"
+        "label": "Contact our team",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Explore community support"
+        "label": "Explore community support",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3903,15 +4035,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Browse all resources"
+        "label": "Browse all resources",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request an accessible format"
+        "label": "Request an accessible format",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Ask a care question"
+        "label": "Ask a care question",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -3998,15 +4133,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Download the provider checklist"
+        "label": "Download the provider checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "View MoreLoved Care’s current services"
+        "label": "View MoreLoved Care’s current services",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Request an assessment"
+        "label": "Request an assessment",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4093,15 +4231,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Download the assessment checklist"
+        "label": "Download the assessment checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a care assessment"
+        "label": "Request a care assessment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Ask for an accessible format"
+        "label": "Ask for an accessible format",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4204,15 +4345,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Download the checklist"
+        "label": "Download the checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request discharge support"
+        "label": "Request discharge support",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Make a professional discharge referral"
+        "label": "Make a professional discharge referral",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4295,15 +4439,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Read MoreLoved Care’s direct-payment page"
+        "label": "Read MoreLoved Care’s direct-payment page",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Download the checklist"
+        "label": "Download the checklist",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Discuss a package"
+        "label": "Discuss a package",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4390,15 +4537,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Discuss dementia support"
+        "label": "Discuss dementia support",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Download the guide"
+        "label": "Download the guide",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Prepare for a care assessment"
+        "label": "Prepare for a care assessment",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4481,15 +4631,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Report a non-emergency concern"
+        "label": "Report a non-emergency concern",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read MoreLoved Care’s safeguarding page"
+        "label": "Read MoreLoved Care’s safeguarding page",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Call 999 for immediate danger"
+        "label": "Call 999 for immediate danger",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4572,15 +4725,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "View current vacancies"
+        "label": "View current vacancies",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Learn about working with us"
+        "label": "Learn about working with us",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "See the recruitment process"
+        "label": "See the recruitment process",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4647,15 +4803,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "View a vacancy and apply"
+        "label": "View a vacancy and apply",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read about working with us"
+        "label": "Read about working with us",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Request a recruitment adjustment"
+        "label": "Request a recruitment adjustment",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4734,15 +4893,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "View current vacancies"
+        "label": "View current vacancies",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read the recruitment process"
+        "label": "Read the recruitment process",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Learn about training and development"
+        "label": "Learn about training and development",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4829,15 +4991,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "View current vacancies"
+        "label": "View current vacancies",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a recruitment adjustment"
+        "label": "Request a recruitment adjustment",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read the recruitment privacy notice"
+        "label": "Read the recruitment privacy notice",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -4920,15 +5085,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Explore careers"
+        "label": "Explore careers",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "View current vacancies"
+        "label": "View current vacancies",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read public workforce assurance"
+        "label": "Read public workforce assurance",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5031,15 +5199,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Request care"
+        "label": "Request care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Make a professional referral"
+        "label": "Make a professional referral",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Get existing-client help"
+        "label": "Get existing-client help",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5114,15 +5285,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Begin care enquiry"
+        "label": "Begin care enquiry",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a callback instead"
+        "label": "Request a callback instead",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read how care begins"
+        "label": "Read how care begins",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5197,15 +5371,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Call about today’s care"
+        "label": "Call about today’s care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request a review"
+        "label": "Request a review",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Make a complaint or give feedback"
+        "label": "Make a complaint or give feedback",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5280,15 +5457,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Submit non-emergency concern"
+        "label": "Submit non-emergency concern",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Call MoreLoved Care"
+        "label": "Call MoreLoved Care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read safeguarding guidance"
+        "label": "Read safeguarding guidance",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5435,15 +5615,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Contact the Data Protection Lead"
+        "label": "Contact the Data Protection Lead",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request access to your information"
+        "label": "Request access to your information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Manage cookie preferences"
+        "label": "Manage cookie preferences",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5534,15 +5717,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Manage cookie preferences"
+        "label": "Manage cookie preferences",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read the Privacy Notice"
+        "label": "Read the Privacy Notice",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Contact us about privacy"
+        "label": "Contact us about privacy",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5629,15 +5815,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Report an accessibility problem"
+        "label": "Report an accessibility problem",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Request another format"
+        "label": "Request another format",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "View Easy Read resources"
+        "label": "View Easy Read resources",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5724,15 +5913,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Contact the Data Protection Lead"
+        "label": "Contact the Data Protection Lead",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "View current vacancies"
+        "label": "View current vacancies",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Read the recruitment process"
+        "label": "Read the recruitment process",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5827,15 +6019,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Contact MoreLoved Care"
+        "label": "Contact MoreLoved Care",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read the Privacy Notice"
+        "label": "Read the Privacy Notice",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "View current services"
+        "label": "View current services",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5922,15 +6117,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Go to Home"
+        "label": "Go to Home",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Search the website"
+        "label": "Search the website",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Contact us"
+        "label": "Contact us",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -5989,15 +6187,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Return to Home"
+        "label": "Return to Home",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read how care begins"
+        "label": "Read how care begins",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Call MoreLoved Care"
+        "label": "Call MoreLoved Care",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -6056,15 +6257,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Download submission summary"
+        "label": "Download submission summary",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "View referral criteria"
+        "label": "View referral criteria",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Contact the referral team"
+        "label": "Contact the referral team",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -6119,15 +6323,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Return to careers"
+        "label": "Return to careers",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read the recruitment process"
+        "label": "Read the recruitment process",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "View the recruitment privacy notice"
+        "label": "View the recruitment privacy notice",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -6186,15 +6393,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Return to Home"
+        "label": "Return to Home",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read the complaints process"
+        "label": "Read the complaints process",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Report a safeguarding concern"
+        "label": "Report a safeguarding concern",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
@@ -6253,15 +6463,18 @@ export const pageContents: Record<string, PageContent> = {
     "ctas": [
       {
         "kind": "Primary",
-        "label": "Call 999 for immediate danger"
+        "label": "Call 999 for immediate danger",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Secondary",
-        "label": "Read safeguarding information"
+        "label": "Read safeguarding information",
+         "to": "/request-care-assessment",
       },
       {
         "kind": "Supporting action",
-        "label": "Return to Home"
+        "label": "Return to Home",
+         "to": "/request-care-assessment",
       }
     ],
     "faqs": [
