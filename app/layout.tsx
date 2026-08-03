@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import CustomCursor from "@/components/Cursor";
 import { Toaster } from 'sonner'
 import CookieConsent from "@/components/cookie";
+import { WhatsAppButton } from "@/components/whatsapp";
 
 
 const roboto =Roboto({
@@ -48,6 +49,7 @@ export default function RootLayout({
 
      
      {children}
+     <WhatsAppButton/>
      <Toaster />
     
      
