@@ -245,8 +245,8 @@ export function FormPage({ page, kind }: { page: PageContent; kind: FormKind }) 
                     <Mail className="w-5 h-5 text-gold mt-0.5" />
                     <div>
                       <p className="eyebrow">Email</p>
-                      <a href="mailto:hello@morelovedcare.co.uk" className="text-sm text-foreground/80">
-                        hello@morelovedcare.co.uk
+                      <a href="mailto:admin@morelovedcare.co.uk" className="text-sm text-foreground/80">
+                        admin@morelovedcare.co.uk
                       </a>
                     </div>
                   </div>

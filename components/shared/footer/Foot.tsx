@@ -15,7 +15,7 @@ export default function Foot() {
           </p>
           <div className="mt-6 space-y-2 text-sm opacity-90">
             <a href="tel:01156812514" className="flex items-center gap-2 hover:opacity-100"><Phone className="w-4 h-4" /> 0115 681 2514</a>
-            <a href="mailto:hello@morelovedcare.co.uk" className="flex items-center gap-2 hover:opacity-100"><Mail className="w-4 h-4" /> hello@morelovedcare.co.uk</a>
+            <a href="mailto:admin@morelovedcare.co.uk" className="flex items-center gap-2 hover:opacity-100"><Mail className="w-4 h-4" /> admin@morelovedcare.co.uk</a>
             <p className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5" /> Sovereign House, 184 Nottingham Road, Nottingham, NG7 7BA</p>
           </div>
         </div>
