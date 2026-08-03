@@ -123,8 +123,8 @@ export default function Navbar() {
                 )
               )}
               <div className="flex gap-2 pt-2">
-                <a href="#referral" className="btn-outline flex-1 text-sm">Refer</a>
-                <a href="#assessment" className="btn-primary flex-1 text-sm">Assessment</a>
+                <a href="/for-professionals/make-a-referral" className="btn-outline flex-1 text-sm">Refer</a>
+                <a href="/request-care-assessment" className="btn-primary flex-1 text-sm">Assessment</a>
               </div>
             </div>
           </div>
