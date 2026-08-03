@@ -65,7 +65,7 @@ export function WhatsAppButton() {
                     className="flex items-center gap-3 rounded-xl p-3 hover:bg-cream transition-colors"
                     onClick={() => setOpen(false)}
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] flex-shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] shrink-0">
                       <WhatsAppIcon className="w-5 h-5" />
                     </div>
                     <div>
