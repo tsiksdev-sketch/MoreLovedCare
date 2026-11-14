@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -36,30 +36,41 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-serif: "Cormorant Garamond", "Instrument Serif", Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-serif: var(--font-cormorant), 'Instrument Serif', Georgia, serif;
+  --font-display: var(--font-cormorant), 'Instrument Serif', Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --shadow-soft: 0 10px 40px -20px color-mix(in oklab, var(--primary) 35%, transparent);
   --shadow-lift: 0 20px 60px -30px color-mix(in oklab, var(--primary) 55%, transparent);
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.75rem;
 
-  /* Warm cream, burgundy, gold — inspired by the reference brand */
-  --background: oklch(0.985 0.012 80);          /* warm cream */
+  /* Warm cream, burgundy, gold */
+  --background: oklch(0.985 0.012 80);
   --cream: oklch(0.97 0.02 75);
-  --foreground: oklch(0.22 0.03 20);            /* deep near-black warm */
+  --foreground: oklch(0.22 0.03 20);
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.03 20);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.03 20);
 
-  --primary: oklch(0.36 0.11 15);               /* deep burgundy */
+  --primary: oklch(0.36 0.11 15);
   --primary-foreground: oklch(0.985 0.012 80);
 
-  --secondary: oklch(0.94 0.03 30);             /* soft blush */
+  --secondary: oklch(0.94 0.03 30);
   --secondary-foreground: oklch(0.36 0.11 15);
 
   --blush: oklch(0.93 0.035 25);
@@ -69,7 +80,7 @@
   --accent: oklch(0.9 0.05 40);
   --accent-foreground: oklch(0.36 0.11 15);
 
-  --gold: oklch(0.72 0.13 80);                  /* warm gold from logo */
+  --gold: oklch(0.72 0.13 80);
   --gold-foreground: oklch(0.22 0.03 20);
 
   --destructive: oklch(0.55 0.22 27);
@@ -78,11 +89,22 @@
   --border: oklch(0.88 0.02 60);
   --input: oklch(0.9 0.02 60);
   --ring: oklch(0.36 0.11 15);
+
+  /* Side panel: deep burgundy with gold highlights */
+  --sidebar: oklch(0.3 0.1 15);
+  --sidebar-foreground: oklch(0.985 0.012 80);
+  --sidebar-primary: oklch(0.72 0.13 80);
+  --sidebar-primary-foreground: oklch(0.22 0.03 20);
+  --sidebar-accent: oklch(0.37 0.11 15);
+  --sidebar-accent-foreground: oklch(0.985 0.012 80);
+  --sidebar-border: oklch(0.985 0.012 80 / 30%);
+  --sidebar-ring: oklch(0.72 0.13 80);
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
+    @apply outline-ring/50;
   }
   html {
     scroll-behavior: smooth;
@@ -94,10 +116,41 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4, .font-serif {
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif {
     font-family: var(--font-serif);
     font-weight: 500;
     letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .section-card {
+    @apply rounded-2xl border border-border bg-card p-6 shadow-soft md:p-8;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-foreground;
+  }
+  .field-input {
+    @apply block w-full cursor-text rounded-lg border border-input bg-card px-3.5 py-2.5 text-sm text-foreground transition outline-none placeholder:text-muted-foreground/70 hover:border-ring focus:border-ring focus:ring-4 focus:ring-ring/15;
+  }
+  .field-input[aria-invalid='true'] {
+    @apply border-destructive ring-4 ring-destructive/10;
+  }
+  textarea.field-input {
+    @apply min-h-24 resize-y leading-relaxed;
+  }
+  .chip {
+    @apply cursor-pointer rounded-full border border-input bg-card px-4 py-2 text-sm font-medium text-foreground transition select-none hover:border-ring focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/25;
+  }
+  .chip[data-on='true'] {
+    @apply border-primary bg-primary text-primary-foreground;
+  }
+  .note {
+    @apply rounded-lg border-l-4 border-gold bg-blush/60 px-4 py-3 text-sm leading-relaxed text-secondary-foreground;
   }
 }
 

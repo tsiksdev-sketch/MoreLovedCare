@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import ApplicationForm from "@/components/application";
+import ApplicationForm from "@/components/application/application-form";
 
 export const metadata: Metadata = {
-  title: "Job Application Form — Betna Agencies Ltd",
+  title: "Job Application Form — Moreloved Care",
   description:
-    "Apply online to join Betna Agencies Ltd. Share your availability, experience, references and declarations in a few guided steps.",
+    "Apply online to join Moreloved Care. Share your availability, experience, references and declarations in a few guided steps.",
   openGraph: {
-    title: "Job Application Form — Betna Agencies Ltd",
-    description: "A guided online application to join the Betna Agencies care team.",
+    title: "Job Application Form — Moreloved Care",
+    description: "A guided online application to join the Moreloved Care team.",
     type: "website",
   },
   twitter: {

@@ -17,6 +17,7 @@ import serviceOlder from "@/public/service-older.jpg";
 import serviceDementia from "@/public/service-dementia.jpg";
 import careers from "@/public/careers.jpg";
 import about from "@/public/hero-about.jpg"
+import application from "@/public/hero-about.jpg"
 import careershero from "@/public/hero-careers.jpg"
 import advicehero from "@/public/hero-advice.jpg"
 import careandsupporthero from "@/public/hero-care-and-support.jpg"
@@ -31,6 +32,7 @@ function heroImageFor(url: string): StaticImageData {
   if (url.includes("dementia")) return serviceDementia;
   if (url.includes("older-people")) return serviceOlder;
   if (url.includes("about")) return about;
+  if (url.includes("application")) return application;
   if (url.includes("careers")) return careershero;
   if (url.includes("advice")) return advicehero;
   if (url.includes("care-and-support")) return careandsupporthero;
@@ -214,7 +216,7 @@ export function ContentPage({ page }: { page: PageContent }) {
                   {page.ctas.map((c, i) => {
                     const primary = c.kind === "Primary";
                     // Use the CTA's own target if provided, else fall back.
-                
+                 
 
                     return (
                       <a

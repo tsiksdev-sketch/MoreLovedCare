@@ -5,8 +5,8 @@ import { fieldSets, formTitles, isValidFormKind, validateForm, type FormValues }
 // Single route that handles every form type. The `kind` field in the body
 // selects which field set to validate against and how to compose the email.
 
-// Where submissions are delivered. Set CONTACT_TO_EMAIL in the project env.
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "delivered@resend.dev"
+// Where submissions are delivered. Set APPLICATIONS_TO_EMAIL in the project env.
+const TO_EMAIL = process.env.APPLICATIONS_TO_EMAIL || "delivered@resend.dev"
 // Must be a verified domain in Resend. onboarding@resend.dev works for testing.
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || "More Loved Care <onboarding@resend.dev>"
 
